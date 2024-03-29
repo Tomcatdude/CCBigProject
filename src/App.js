@@ -48,7 +48,7 @@ const App = () => {
     setIsUploading(true);
 
     console.log({base64Data: image});
-    const data = JSON.stringify({base64Data: image, coordinates: JSON.stringify(location)});
+    const data = JSON.stringify({base64Data: image, coordinates: JSON.stringify(location)});//whatever
 
     fetch('https://zvdji54wq7.execute-api.us-east-1.amazonaws.com/dev/upload',
     {
