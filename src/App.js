@@ -119,8 +119,8 @@ const App = () => {
       </div>
       {location && (
         <div className="gps">
-          <p>Latitude: {location.latitude}</p>
-          <p>Longitude: {location.longitude}</p>
+          {/*<p>Latitude: {location.latitude}</p>*/}
+          {/*<p>Longitude: {location.longitude}</p>*/}
         </div>
       )}
     </div>
