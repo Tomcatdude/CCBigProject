@@ -1,0 +1,68 @@
+body{
+    background-color: black;  
+    color: tomato;
+    padding-top: 40px;
+  }
+  
+  strong {
+    font-family: cursive;
+    margin-right: 5px;
+  }
+  
+  .go-center {
+    display: flex;
+    margin-top: 7px;
+    justify-content: center;
+  }
+  
+  
+  .flex-column-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin: 5% 5% 5% 5%;
+    flex-direction: column;
+  }
+  
+  .flex-column-container select {
+    align-self: flex-start;
+    align-items: center;
+    background: black;
+    color: white;
+  }
+  
+  .flex-row-container {
+    display: flex;
+    margin: 5% 5% 5% 5%;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .dice {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .img-1{
+    background-image: url('https://imgur.com/a005G8C.png');
+  }
+  
+  .img-2{
+    background-image: url('https://imgur.com/j9AlaxW.png');
+  }
+  
+  .img-3{
+    background-image: url('https://imgur.com/IyAYTXb.png');
+  }
+  
+  .img-4{
+    background-image: url('https://imgur.com/ecaqBPo.png');
+  }
+  
+  .img-5{
+    background-image: url('https://imgur.com/RfPJMxb.png');
+  }
+  
+  .img-6{
+    background-image: url('https://imgur.com/HmZcCX6.png');
+  }
