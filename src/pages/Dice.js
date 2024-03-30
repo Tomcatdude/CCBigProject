@@ -6,8 +6,6 @@ export default function Rekognition(){
 
 
 function DiceSet(){
-    const [numDie, setNumDie] = useState(1);  
-    const [d, setD] = useState(6);
     const [dice, setDice] = useState([1,6])//0: numDie, 1:d
 
     function RollDice(){
@@ -20,7 +18,7 @@ function DiceSet(){
             if(counter >= 15)
                 clearInterval(interval);
         
-            setDraw(Math.round((Math.random()*d) + 1));    	
+            setDraw(Math.round((Math.random()*dice[1]) + 1));    	
             }, 100);
         
             },[dice]);
@@ -38,9 +36,9 @@ function DiceSet(){
     return (
     <div className="flex-column-container">
                 <h5>Number of Dice</h5>
-                <input type="number" onChange={(e) => setDice([e.target.value,dice[1]])} defaultValue={numDie}/>
+                <input type="number" onChange={(e) => setDice([e.target.value,dice[1]])} defaultValue={dice[0]}/>
                 <h5>Number of Sides</h5>
-                <input type="number" onChange={(e) => setDice([dice[0],e.target.value])} defaultValue={d}/>
+                <input type="number" onChange={(e) => setDice([dice[0],e.target.value])} defaultValue={dice[1]}/>
                 <button onClick={rollThem} style={{ display: 'block', marginTop: '10px' }}>Re-Roll</button>
                 <Dice num={dice[0]}/>
 
