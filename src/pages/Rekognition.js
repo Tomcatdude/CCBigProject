@@ -122,7 +122,7 @@ export default function Rekognition(){
         {labels.length > 0 && (
           <div className="labels">
             <h2>Labels:</h2>
-            <ul style="list-style-type: none;">
+            <ul style ={{listStyle:'none'}}>
               {labels.map((label, index) =>
               <li key={index} >{label.Name}</li>
               )}
