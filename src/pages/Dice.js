@@ -1,11 +1,11 @@
 import "./Dice.css"
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useCallback} from "react";
 
 export default function Rekognition(){
 
 
 
-function DiceSet(){
+function DiceSet({sum, setSum}){
     const [dice, setDice] = useState([1,6])//0: numDie, 1:d
 
     function RollDice(){
@@ -21,7 +21,10 @@ function DiceSet(){
             setDraw(Math.round((Math.random()*dice[1]) + 1));    	
             }, 100);
         
-            },[dice]);
+            },[]);
+
+        
+            //setSum([...sum, draw])
             
         return <h3>{draw}</h3>;
     }
@@ -30,15 +33,26 @@ function DiceSet(){
         Array.from({length: num}).map((_item, index) => <RollDice d={dice[1]}/>)
     )
 
+    const rollOnDChange = (num) => {
+        setSum([])
+        setDice([dice[0],num])
+    }
+
+    const rollOnNumDChange = (num) => {
+        setSum([])
+        setDice([num,dice[1]])
+    }
+
     const rollThem = () => {
+        setSum([])
         setDice([dice[0],dice[1]])
     }
     return (
     <div className="flex-column-container">
                 <h5>Number of Dice</h5>
-                <input type="number" onChange={(e) => setDice([e.target.value,dice[1]])} defaultValue={dice[0]}/>
+                <input type="number" onChange={(e) => rollOnNumDChange(e.target.value)} defaultValue={dice[0]}/>
                 <h5>Number of Sides</h5>
-                <input type="number" onChange={(e) => setDice([dice[0],e.target.value])} defaultValue={dice[1]}/>
+                <input type="number" onChange={(e) => rollOnDChange(e.target.value)} defaultValue={dice[1]}/>
                 <button onClick={rollThem} style={{ display: 'block', marginTop: '10px' }}>Re-Roll</button>
                 <Dice num={dice[0]}/>
 
@@ -46,11 +60,31 @@ function DiceSet(){
   );
 }
 
+function DiceBox(){
+    const [dSum, setDSum] = useState([])
+    const [fullSum, setFullSum] = useState(0);
+
+    function add(accumulator, a) {
+        return accumulator + a;
+    }
+
+    const handleSum = useCallback((e) => {
+        setDSum(e);
+        setFullSum(dSum.reduce(add,0));
+    },[])
+    return (
+        <div>
+            <DiceSet sum={dSum} setSum={handleSum}/>
+            <h4>Sum: {fullSum}</h4>
+        </div>
+    )
+}
+
 function GameBoard(){
-    const [sets, setSets] = useState([<DiceSet/>])
+    const [sets, setSets] = useState([<DiceBox/>])
 
     const addOne = () => {
-        setSets([...sets, <DiceSet/>])
+        setSets([...sets, <DiceBox/>])
     }
     const deleteOne = () => {
         setSets(sets.slice(0,-1))

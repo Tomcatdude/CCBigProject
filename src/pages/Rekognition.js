@@ -66,7 +66,7 @@ export default function Rekognition(){
     .then((data) => {
       if (data) {
         console.log(data);
-        setLabels(data.labels.Labels);
+        setLabels(data.labels.CelebrityFaces);
         console.log(data.labels);
       } else {
         console.error("Upload failed: " + data.message);
