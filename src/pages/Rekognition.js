@@ -127,9 +127,12 @@ export default function Rekognition(){
               <li key={index}>{label.Name}</li>
               )}
               {labels.map((label, index) =>
+              <li key={index}>
                 {label.Urls.map((url, ind) =>
                   <li key={ind}>{url}</li>
                 )}
+              </li>
+                
               )}
             </ul>
           </div>
