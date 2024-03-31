@@ -124,12 +124,12 @@ export default function Rekognition(){
             <h2>Labels:</h2>
             <ul>
               {labels.map((label, index) =>
-              <li key={index}>{label.Name}</li>
+              <li key={index} style="list-style-type: none">{label.Name}</li>
               )}
               {labels.map((label, index) =>
               <li key={index}>
                 {label.Urls.map((url, ind) =>
-                  <li key={ind}>{url}</li>
+                  <li key={ind} style="list-style-type: none">{url}</li>
                 )}
               </li>
                 
