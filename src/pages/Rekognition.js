@@ -89,7 +89,7 @@ export default function Rekognition(){
   return (
       
       <div className="app-container">
-        <h3 className="instr">Identify A Celebrity</h3>
+        <h3>Identify A Celebrity</h3>
           <div className="webcam-container">
             <Webcam
             audio={false}
@@ -113,7 +113,7 @@ export default function Rekognition(){
               <h2>Labels:</h2>
               <ul style ={{listStyle:'none'}}>
                 {labels.map((label, index) =>
-                <li key={index} >{label.Name}</li>
+                <li className="celeb" key={index} >{label.Name}</li>
                 )}
                 {labels.map((label, index) =>
                 <li key={index}>
