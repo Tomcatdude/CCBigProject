@@ -87,65 +87,46 @@ export default function Rekognition(){
   };
 
   return (
-    <>
-    
-    <Navbar />
-      <div className="container">
-        <Routes>
-          <Route path="/rekognition" element={<Rekognition />} />
-          <Route path="/dice" element={<Dice />} />
-        </Routes>
       
-    <div className="app-container">
-      <h3>Image</h3>
-      <h3>Classification</h3>
-      <div className="container">
-        <div className="webcam-container">
-          <Webcam
-          audio={false}
-          screenshotFormat="image/jpeg"
-          height={200}
-          width={200}
-          ref={webcamRef}
-          videoConstraints={{
-            facingMode,
-          }}
-          />
+      <div className="app-container">
+        <h3 className="instr">Identify A Celebrity</h3>
+          <div className="webcam-container">
+            <Webcam
+            audio={false}
+            screenshotFormat="image/jpeg"
+            height={200}
+            width={200}
+            ref={webcamRef}
+            videoConstraints={{
+              facingMode,
+            }}
+            />
 
-          <button onClick={captureNew} disabled={isCapturing || isUploading}>Capture</button>
-          <button onClick={handleUploadNew} disabled={isCapturing || isUploading}>Upload</button>
-          <button onClick={toggleCamera} disabled={isCapturing || isUploading}>Toggle Camera</button>
-        </div>
-      </div>
-
-      <div className="image-container">
-        {labels.length > 0 && (
-          <div className="labels">
-            <h2>Labels:</h2>
-            <ul style ={{listStyle:'none'}}>
-              {labels.map((label, index) =>
-              <li key={index} >{label.Name}</li>
-              )}
-              {labels.map((label, index) =>
-              <li key={index}>
-                {label.Urls.map((url, ind) =>
-                  <li key={ind} >{url}</li>
-                )}
-              </li>
-                
-              )}
-            </ul>
+            <button className="actionButton" onClick={captureNew} disabled={isCapturing || isUploading}>Capture</button>
+            <button className="actionButton" onClick={handleUploadNew} disabled={isCapturing || isUploading}>Upload</button>
+            <button className="toggleButton" onClick={toggleCamera} disabled={isCapturing || isUploading}>Toggle Camera</button>
           </div>
-        )}
-      </div>
-      {location && (
-        <div className="gps">
-          {/*<p>Latitude: {location.latitude}</p>*/}
-          {/*<p>Longitude: {location.longitude}</p>*/}
+
+        <div className="image-container">
+          {labels.length > 0 && (
+            <div className="labels">
+              <h2>Labels:</h2>
+              <ul style ={{listStyle:'none'}}>
+                {labels.map((label, index) =>
+                <li key={index} >{label.Name}</li>
+                )}
+                {labels.map((label, index) =>
+                <li key={index}>
+                  {label.Urls.map((url, ind) =>
+                    <li key={ind} >{url}</li>
+                  )}
+                </li>
+                  
+                )}
+              </ul>
+            </div>
+          )}
         </div>
-      )}
-    </div>
-    </div>
-    </>
+      </div>
   );
 };

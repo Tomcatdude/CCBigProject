@@ -18,7 +18,7 @@ function DiceSet({sum, setSum}){
             if(counter >= 15)
                 clearInterval(interval);
         
-            setDraw(Math.round((Math.random()*dice[1]) + 1));    	
+            setDraw(Math.round((Math.random()*(dice[1]-1)) + 1));    	
             }, 100);
         
             },[]);
@@ -26,7 +26,7 @@ function DiceSet({sum, setSum}){
         
             //setSum([...sum, draw])
             
-        return <h3>{draw}</h3>;
+        return <h2 className="diceBody">  &nbsp;{draw}&nbsp;  </h2>;
     }
 
     const Dice = ({num}) => (
@@ -48,15 +48,18 @@ function DiceSet({sum, setSum}){
         setDice([dice[0],dice[1]])
     }
     return (
-    <div className="flex-column-container">
-                <h5>Number of Dice</h5>
-                <input type="number" onChange={(e) => rollOnNumDChange(e.target.value)} defaultValue={dice[0]}/>
-                <h5>Number of Sides</h5>
-                <input type="number" onChange={(e) => rollOnDChange(e.target.value)} defaultValue={dice[1]}/>
-                <button onClick={rollThem} style={{ display: 'block', marginTop: '10px' }}>Re-Roll</button>
-                <Dice num={dice[0]}/>
+        <div className="flex-column-container">
+                    <p className="paramsBody">Number of Dice</p>
+                    <input type="number" className="numDForm" max="6" onChange={(e) => rollOnNumDChange(e.target.value)} defaultValue={dice[0]}/>
+                    <p className="paramsBody">Number of Sides</p>
+                    <input type="number" className="dForm" max="100" onChange={(e) => rollOnDChange(e.target.value)} defaultValue={dice[1]}/>
+                    <button onClick={rollThem} className="rerollButton" style={{ display: 'block', marginTop: '10px' }}>Re-Roll</button>
+                    <div className="flex-row-container">
+                        <Dice num={dice[0]}/>
+                    </div>
 
-    </div>
+        </div>
+    
   );
 }
 
@@ -73,9 +76,8 @@ function DiceBox(){
         setFullSum(dSum.reduce(add,0));
     },[])
     return (
-        <div>
+        <div className="diceBox">
             <DiceSet sum={dSum} setSum={handleSum}/>
-            <h4>Sum: {fullSum}</h4>
         </div>
     )
 }
@@ -91,9 +93,12 @@ function GameBoard(){
     }
 
     return (
-        <div>
-            <button onClick={addOne}>Add a Set</button>
-            <button onClick={deleteOne}>Remove a Set</button>
+        <div className="gameBoard">
+            <h3 className="instr">Roll Some Dice</h3>
+            <div>
+            <button className="settersButton" onClick={addOne}>Add a Set</button>
+            <button className="settersButton" onClick={deleteOne}>Remove a Set</button>
+            </div>
             {sets}
         </div>
     );

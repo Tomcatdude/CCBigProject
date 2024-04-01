@@ -1,14 +1,27 @@
-body{
-    background-color: black;  
-    color: tomato;
-    padding-top: 40px;
-  }
+
   
   strong {
-    font-family: cursive;
+    
     margin-right: 5px;
   }
-  
+   
+  .paramsBody { 
+    text-align: center;
+    font-family: Arial;
+    font-weight: 800;
+    font-size: medium;
+    color: #d0dffb;
+    margin-bottom: 5px;
+  }
+
+  .diceBody {
+    color: tomato;
+  }
+
+  .instr {
+    color: #FFF;
+  }
+
   .go-center {
     display: flex;
     margin-top: 7px;
@@ -42,27 +55,76 @@ body{
     width: 100px;
     height: 100px;
   }
-  
-  .img-1{
-    background-image: url('https://imgur.com/a005G8C.png');
+
+  .gameBoard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    background-color: #0a2759;
+    border: 2px solid #0560b0;
+    border-radius: 2%;
+    width: 500px;
+    min-height: 500px;
   }
-  
-  .img-2{
-    background-image: url('https://imgur.com/j9AlaxW.png');
+
+  .diceBox {
+    background-color: #2b7795;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #acfcff;
+    border-radius: 10%;
+    width: 350px;
+    margin: 10px;
   }
-  
-  .img-3{
-    background-image: url('https://imgur.com/IyAYTXb.png');
+
+  .numDForm {
+    align-self: center;
+    background-color: #691d30;
+    width: 100px;
+    border: 3px solid #1c2736;
+    border-radius: 8%;
+    color: #d0dffb;
+    font-weight: bold;
+    font-size: larger;
   }
-  
-  .img-4{
-    background-image: url('https://imgur.com/ecaqBPo.png');
+  .dForm {
+    align-self: center;
+    background-color: #691d30;
+    width: 100px;
+    border: 3px solid #1c2736;
+    border-radius: 8%;
+    color: #d0dffb;
+    font-weight: bold;
+    
+    font-size: larger;
   }
-  
-  .img-5{
-    background-image: url('https://imgur.com/RfPJMxb.png');
+
+  .rerollButton {
+    align-self: center;
+    width: 100px;
+    background: #1683d5;
+    color: #d0dffb;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid #1c2736;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: 10px;
   }
-  
-  .img-6{
-    background-image: url('https://imgur.com/HmZcCX6.png');
+
+  .settersButton {
+    align-self: center;
+    width: 150px;
+    background: #1683d5;
+    color: #d0dffb;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid #1c2736;
+    cursor: pointer;
+    border-radius: 10px;
+    margin-top: 10px;
   }

@@ -12,15 +12,15 @@ import { Route, Routes } from "react-router-dom"
 
 function App () {
   return (
-    <>
+    <div className="mainBox">
       <Navbar />
-      <div className="container">
+      <div className="navContainer">
         <Routes>
           <Route path="/rekognition" element={<Rekognition />} />
           <Route path="/dice" element={<Dice />} />
         </Routes>
       </div>
-    </>
+    </div>
   )
 }
 
