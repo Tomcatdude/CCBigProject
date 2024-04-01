@@ -1,30 +1,20 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import Webcam from "react-webcam"
 import './Rekognition.css';
-import {Amplify, API} from "aws-amplify"
+import {Amplify} from "aws-amplify"
 import awsmobile from "../aws-exports"
-
-import Navbar from "../Navbar"
-import Dice from "./Dice"
-import { Route, Routes } from "react-router-dom"
 
 Amplify.configure(
   awsmobile
 );
 
 export default function Rekognition(){
-  const [images, setImages] = useState([]);
   const [location, setLocation] = useState(null);
   const [labels, setLabels] = useState([]);
   const [image, setImage] = useState(null);
-  const [capturing, setCapturing] = useState(false);
-  const [uploading, setUploading] = useState(false)
   const [isCapturing, setIsCapturing] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
-  const [data, setPostData] = useState({body: {}, headers: {}});
   const [facingMode, setFacingMode] = useState("user");
-
-  const [resp, setResp] = React.useState("");
 
 
   const captureNew = async () => {
@@ -110,7 +100,7 @@ export default function Rekognition(){
         <div className="image-container">
           {labels.length > 0 && (
             <div className="labels">
-              <h2>Labels:</h2>
+              <h2>Celebrity:</h2>
               <ul style ={{listStyle:'none'}}>
                 {labels.map((label, index) =>
                 <li className="celeb" key={index} >{label.Name}</li>
@@ -118,7 +108,7 @@ export default function Rekognition(){
                 {labels.map((label, index) =>
                 <li key={index}>
                   {label.Urls.map((url, ind) =>
-                    <li key={ind} >{url}</li>
+                    <li key={ind} href={url}>{url}</li>
                   )}
                 </li>
                   

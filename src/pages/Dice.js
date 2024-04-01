@@ -1,18 +1,19 @@
 import "./Dice.css"
-import React, {useState, useEffect, useCallback} from "react";
+import React, {useState, useEffect} from "react";
 
 export default function Dice(){
 
 
 
-function DiceSet({sum, setSum}){
+function DiceSet(){
     const [dice, setDice] = useState([1,6])//0: numDie, 1:d
 
     function RollDice(){
         const [draw, setDraw] = useState(1);  
-        let counter= 0;
+        
         
         useEffect(() => {
+            let counter= 0;
             const interval = setInterval(() => {
             counter += 1;
             if(counter >= 15)
@@ -34,25 +35,22 @@ function DiceSet({sum, setSum}){
     )
 
     const rollOnDChange = (num) => {
-        setSum([])
         setDice([dice[0],num])
     }
 
     const rollOnNumDChange = (num) => {
-        setSum([])
         setDice([num,dice[1]])
     }
 
     const rollThem = () => {
-        setSum([])
         setDice([dice[0],dice[1]])
     }
     return (
         <div className="flex-column-container">
                     <p className="paramsBody">Number of Dice</p>
-                    <input type="number" className="numDForm" max="6" onChange={(e) => rollOnNumDChange(e.target.value)} defaultValue={dice[0]}/>
+                    <input type="number" className="numDForm" min="1" max="6" onChange={(e) => rollOnNumDChange(e.target.value)} defaultValue={dice[0]}/>
                     <p className="paramsBody">Number of Sides</p>
-                    <input type="number" className="dForm" max="100" onChange={(e) => rollOnDChange(e.target.value)} defaultValue={dice[1]}/>
+                    <input type="number" className="dForm" min="1" max="100" onChange={(e) => rollOnDChange(e.target.value)} defaultValue={dice[1]}/>
                     <button onClick={rollThem} className="rerollButton" style={{ display: 'block', marginTop: '10px' }}>Re-Roll</button>
                     <div className="flex-row-container">
                         <Dice num={dice[0]}/>
@@ -64,20 +62,9 @@ function DiceSet({sum, setSum}){
 }
 
 function DiceBox(){
-    const [dSum, setDSum] = useState([])
-    const [fullSum, setFullSum] = useState(0);
-
-    function add(accumulator, a) {
-        return accumulator + a;
-    }
-
-    const handleSum = useCallback((e) => {
-        setDSum(e);
-        setFullSum(dSum.reduce(add,0));
-    },[])
     return (
         <div className="diceBox">
-            <DiceSet sum={dSum} setSum={handleSum}/>
+            <DiceSet/>
         </div>
     )
 }
