@@ -8,6 +8,7 @@ import awsmobile from "./aws-exports"
 import Navbar from "./Navbar"
 import Rekognition from "./pages/Rekognition"
 import Dice from "./pages/Dice"
+import Home from "./pages/Home"
 import { Route, Routes } from "react-router-dom"
 
 function App () {
@@ -16,6 +17,7 @@ function App () {
       <Navbar />
       <div className="navContainer">
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/rekognition" element={<Rekognition />} />
           <Route path="/dice" element={<Dice />} />
         </Routes>

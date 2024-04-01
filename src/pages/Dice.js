@@ -1,7 +1,7 @@
 import "./Dice.css"
 import React, {useState, useEffect, useCallback} from "react";
 
-export default function Rekognition(){
+export default function Dice(){
 
 
 

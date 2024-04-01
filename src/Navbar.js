@@ -7,8 +7,8 @@ export default function Navbar() {
         Home
       </Link>
       <ul>
-        <CustomLink to="/rekognition">rekognition</CustomLink>
-        <CustomLink to="/dice">Dice</CustomLink>
+        <CustomLink to="/rekognition">|Find Celebrity|</CustomLink>
+        <CustomLink to="/dice">|Dice|</CustomLink>
       </ul>
     </nav>
   )

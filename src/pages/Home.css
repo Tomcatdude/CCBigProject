@@ -1,0 +1,28 @@
+body {
+    color: #acfcff;
+    font-family: Arial;
+}
+
+.head {
+    color:#acfcff;
+}
+
+.tool {
+    color:#FFF;
+}
+
+.toolDesc {
+    color:#acfcff;
+}
+
+.homeBox {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    background-color: #0a2759;
+    border: 2px solid #0560b0;
+    border-radius: 2%;
+    width: 500px;
+    min-height: 500px;
+    padding: 20px;
+  }

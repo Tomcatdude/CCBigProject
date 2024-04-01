@@ -11,7 +11,10 @@ body {
   margin: 0;
 }
 
-/* main container */
+.celeb {
+  align-self: center;
+  font-weight: bold;
+}
 .app-container {
   display: flex;
   flex-direction: column;
