@@ -1,4 +1,7 @@
 .mainBox {
+  position: absolute;
+  top: 0;
+  left: 30%;
   width: 500px;
   min-height: 100px;
   align-items: center;
